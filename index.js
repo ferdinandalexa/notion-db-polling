@@ -1,6 +1,6 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
-import Notion from './src/models/cinema.models.js';
+import Notion from './src/models/notion.models.js';
 dotenv.config();
 
 const { NOTION_KEY, NOTION_DATABASE_ID, ACTION_URL, DISPATCH_ACTION } = process.env;
