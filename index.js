@@ -7,6 +7,8 @@ const { NOTION_KEY, NOTION_DATABASE_ID, ACTION_URL, DISPATCH_ACTION } = process.
 
 let currentMoviesWithoutData = [];
 
+const waitingTime = 60_000;
+
 const notion = new Notion(NOTION_KEY, NOTION_DATABASE_ID);
 
 async function main () {
@@ -25,5 +27,5 @@ async function main () {
 }
 
 (async function () {
-  setInterval(main, 30000);
+  setInterval(main, waitingTime);
 })();
