@@ -14,10 +14,16 @@ class Notion {
         checkbox: {
           equals: false
         }
-      }
+      },
+      sorts: [
+        {
+          property: 'CreatedAt',
+          direction: 'ascending'
+        }
+      ]
     }
     );
-    return response.results;
+    return response.results.map(movie => movie.id);
   }
 }
 
