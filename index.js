@@ -12,12 +12,12 @@ const waitingTime = 60_000;
 const notion = new Notion(NOTION_KEY, NOTION_DATABASE_ID);
 
 async function main () {
-  const currentMoviesWithoutData = await notion.getItemsWithoutData();
-  const hasMovies = currentMoviesWithoutData.length > 0;
-  const isNewBatch = compareBatches(lastBatch, currentMoviesWithoutData);
+  const newBatch = await notion.getItemsWithoutData();
+  const hasMovies = newBatch.length > 0;
+  const isNewBatch = compareBatches(lastBatch, newBatch);
 
   if (hasMovies && isNewBatch) {
-    lastBatch = currentMoviesWithoutData;
+    lastBatch = newBatch;
     await axios.post(`${ACTION_URL}`,
       { event_type: 'cinema-new-item' },
       {
