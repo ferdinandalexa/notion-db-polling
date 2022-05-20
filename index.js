@@ -1,7 +1,7 @@
-import axios from 'axios';
 import dotenv from 'dotenv';
 import compareBatches from './src/compareBatches.js';
 import Notion from './src/models/notion.models.js';
+import dispatchAction from './src/services/dispatchAction.js';
 dotenv.config();
 
 const { NOTION_KEY, NOTION_DATABASE_ID, ACTION_URL, DISPATCH_ACTION } = process.env;
@@ -18,15 +18,7 @@ async function main () {
 
   if (hasMovies && isNewBatch) {
     lastBatch = newBatch;
-    await axios.post(`${ACTION_URL}`,
-      { event_type: 'cinema-new-item' },
-      {
-        headers: {
-          Accept: 'application/vnd.github.everest-preview+json',
-          Authorization: `token ${DISPATCH_ACTION}`
-        }
-      }
-    );
+    dispatchAction(ACTION_URL, DISPATCH_ACTION, 'cinema-new-item');
   }
 }
 

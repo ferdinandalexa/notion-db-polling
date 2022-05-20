@@ -7,13 +7,18 @@
   "version": "1.0.0",
   "description": "Get IMDb data about the movie and update database items information",
   "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
   "dependencies": {
     "@notionhq/client": "1.0.4",
     "axios": "0.27.2",
     "dotenv": "16.0.1"
   },
   "devDependencies": {
-    "semistandard": "16.0.1"
+    "semistandard": "16.0.1",
+    "vite": "2.9.9",
+    "vitest": "0.12.6"
   },
   "eslintConfig": {
     "extends": [
