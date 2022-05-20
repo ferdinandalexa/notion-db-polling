@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import compareBatches from './src/compareBatches.js';
+import compareBatches from './src/services/compareBatches.js';
 import Notion from './src/models/notion.models.js';
 import dispatchAction from './src/services/dispatchAction.js';
 dotenv.config();
